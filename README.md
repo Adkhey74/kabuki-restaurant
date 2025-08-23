@@ -1,36 +1,122 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 🍣 Restaurant Kabuki - Site Web
 
-## Getting Started
+Site web moderne pour le restaurant japonais Kabuki, développé avec Next.js 15, Tailwind CSS et Framer Motion.
 
-First, run the development server:
+## 🚀 Déploiement
+
+### Option 1: Vercel (Recommandé)
+
+1. **Installer Vercel CLI :**
+   ```bash
+   npm install -g vercel
+   ```
+
+2. **Se connecter à Vercel :**
+   ```bash
+   vercel login
+   ```
+
+3. **Déployer :**
+   ```bash
+   vercel
+   ```
+
+4. **Ou déployer directement depuis GitHub :**
+   - Poussez votre code sur GitHub
+   - Connectez-vous sur [vercel.com](https://vercel.com)
+   - Importez votre repository
+   - Vercel déploiera automatiquement
+
+### Option 2: Netlify
+
+1. **Installer Netlify CLI :**
+   ```bash
+   npm install -g netlify-cli
+   ```
+
+2. **Build du projet :**
+   ```bash
+   npm run build
+   ```
+
+3. **Déployer :**
+   ```bash
+   netlify deploy --prod --dir=out
+   ```
+
+### Option 3: GitHub Pages
+
+1. **Ajouter dans package.json :**
+   ```json
+   {
+     "scripts": {
+       "export": "next build && next export"
+     }
+   }
+   ```
+
+2. **Build et export :**
+   ```bash
+   npm run export
+   ```
+
+3. **Déployer le dossier `out` sur GitHub Pages**
+
+## 📋 Prérequis
+
+- Node.js 18+ 
+- npm ou yarn
+
+## 🛠️ Installation locale
 
 ```bash
+# Cloner le projet
+git clone [votre-repo]
+
+# Installer les dépendances
+npm install
+
+# Lancer en développement
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+
+# Build pour production
+npm run build
+
+# Lancer en production
+npm start
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## 🎨 Technologies utilisées
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+- **Next.js 15** - Framework React
+- **Tailwind CSS** - Framework CSS
+- **Framer Motion** - Animations
+- **TypeScript** - Typage statique
+- **DaisyUI** - Composants UI
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## 📱 Fonctionnalités
 
-## Learn More
+- ✅ Design responsive
+- ✅ Animations fluides
+- ✅ Page de réservation
+- ✅ Navigation moderne
+- ✅ Thème sombre élégant
+- ✅ Optimisé pour les performances
 
-To learn more about Next.js, take a look at the following resources:
+## 🌐 Domaines personnalisés
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Après déploiement, vous pouvez ajouter votre domaine personnalisé :
+- **Vercel** : Paramètres du projet → Domaines
+- **Netlify** : Paramètres du site → Domaines
+- **GitHub Pages** : Paramètres du repository → Pages
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## 📞 Support
 
-## Deploy on Vercel
+Pour toute question sur le déploiement, consultez :
+- [Documentation Vercel](https://vercel.com/docs)
+- [Documentation Netlify](https://docs.netlify.com)
+- [Documentation GitHub Pages](https://pages.github.com)
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+---
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+**Restaurant Kabuki** - Une expérience culinaire japonaise authentique 🍣✨
