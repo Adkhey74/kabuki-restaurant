@@ -7,16 +7,19 @@ Site web moderne pour le restaurant japonais Kabuki, développé avec Next.js 15
 ### Option 1: Vercel (Recommandé)
 
 1. **Installer Vercel CLI :**
+
    ```bash
    npm install -g vercel
    ```
 
 2. **Se connecter à Vercel :**
+
    ```bash
    vercel login
    ```
 
 3. **Déployer :**
+
    ```bash
    vercel
    ```
@@ -30,11 +33,13 @@ Site web moderne pour le restaurant japonais Kabuki, développé avec Next.js 15
 ### Option 2: Netlify
 
 1. **Installer Netlify CLI :**
+
    ```bash
    npm install -g netlify-cli
    ```
 
 2. **Build du projet :**
+
    ```bash
    npm run build
    ```
@@ -47,6 +52,7 @@ Site web moderne pour le restaurant japonais Kabuki, développé avec Next.js 15
 ### Option 3: GitHub Pages
 
 1. **Ajouter dans package.json :**
+
    ```json
    {
      "scripts": {
@@ -56,6 +62,7 @@ Site web moderne pour le restaurant japonais Kabuki, développé avec Next.js 15
    ```
 
 2. **Build et export :**
+
    ```bash
    npm run export
    ```
@@ -64,7 +71,7 @@ Site web moderne pour le restaurant japonais Kabuki, développé avec Next.js 15
 
 ## 📋 Prérequis
 
-- Node.js 18+ 
+- Node.js 18+
 - npm ou yarn
 
 ## 🛠️ Installation locale
@@ -106,6 +113,7 @@ npm start
 ## 🌐 Domaines personnalisés
 
 Après déploiement, vous pouvez ajouter votre domaine personnalisé :
+
 - **Vercel** : Paramètres du projet → Domaines
 - **Netlify** : Paramètres du site → Domaines
 - **GitHub Pages** : Paramètres du repository → Pages
@@ -113,6 +121,7 @@ Après déploiement, vous pouvez ajouter votre domaine personnalisé :
 ## 📞 Support
 
 Pour toute question sur le déploiement, consultez :
+
 - [Documentation Vercel](https://vercel.com/docs)
 - [Documentation Netlify](https://docs.netlify.com)
 - [Documentation GitHub Pages](https://pages.github.com)
