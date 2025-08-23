@@ -3,6 +3,7 @@
 
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence, useScroll, useTransform } from "framer-motion";
+import Link from "next/link";
 
 import AnimatedSection from "@/components/AnimatedSection";
 
@@ -363,8 +364,7 @@ export default function Home() {
                 />
               </motion.a>
 
-              <motion.a
-                href="/reservation"
+              <motion.div
                 className="group relative px-8 py-4 bg-gradient-to-r from-yellow-500 to-yellow-600 text-white font-semibold rounded-full text-lg shadow-2xl overflow-hidden inline-block"
                 whileHover={{
                   scale: 1.05,
@@ -374,19 +374,21 @@ export default function Home() {
                 whileTap={{ scale: 0.95 }}
                 transition={{ type: "spring", stiffness: 300, damping: 20 }}
               >
-                <span className="relative z-10 flex items-center">
-                  <svg className="w-5 h-5 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
-                  </svg>
-                  Réserver une table
-                </span>
-                <motion.div
-                  className="absolute inset-0 bg-gradient-to-r from-yellow-600 to-yellow-700"
-                  initial={{ x: "-100%" }}
-                  whileHover={{ x: 0 }}
-                  transition={{ duration: 0.3 }}
-                />
-              </motion.a>
+                <Link href="/reservation" className="block">
+                  <span className="relative z-10 flex items-center">
+                    <svg className="w-5 h-5 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
+                    </svg>
+                    Réserver une table
+                  </span>
+                  <motion.div
+                    className="absolute inset-0 bg-gradient-to-r from-yellow-600 to-yellow-700"
+                    initial={{ x: "-100%" }}
+                    whileHover={{ x: 0 }}
+                    transition={{ duration: 0.3 }}
+                  />
+                </Link>
+              </motion.div>
 
 
             </motion.div>
@@ -935,9 +937,9 @@ export default function Home() {
         </div>
         <div>
           <div className="grid grid-flow-col gap-4">
-            <a href="/#about" className="link link-hover">À propos</a>
-            <a href="/#menu" className="link link-hover">Menu</a>
-            <a href="/#contact" className="link link-hover">Contact</a>
+            <Link href="/#about" className="link link-hover">À propos</Link>
+            <Link href="/#menu" className="link link-hover">Menu</Link>
+            <Link href="/#contact" className="link link-hover">Contact</Link>
             <a className="link link-hover">Mentions légales</a>
           </div>
         </div>

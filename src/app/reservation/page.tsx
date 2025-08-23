@@ -3,6 +3,7 @@
 import { motion, useScroll, useTransform } from "framer-motion";
 import { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
+import Link from "next/link";
 
 export default function ReservationPage() {
   const router = useRouter();
@@ -143,17 +144,18 @@ export default function ReservationPage() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.3 }}
             >
-              <motion.a
-                href="/"
+              <motion.div
                 className="text-gray-300 hover:text-red-400 font-medium transition-colors duration-200 relative group"
                 initial={{ opacity: 0, y: -10 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.4, delay: 0.4 }}
                 whileHover={{ scale: 1.05 }}
               >
-                Accueil
-                <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-red-400 transition-all duration-200 group-hover:w-full"></span>
-              </motion.a>
+                <Link href="/" className="block">
+                  Accueil
+                  <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-red-400 transition-all duration-200 group-hover:w-full"></span>
+                </Link>
+              </motion.div>
               {['Menu', 'À propos', 'Contact'].map((item, index) => (
                 <motion.a
                   key={item}
@@ -725,14 +727,14 @@ export default function ReservationPage() {
           </p>
           <p>Copyright © 2024 - Tous droits réservés</p>
         </div>
-        <div>
-          <div className="grid grid-flow-col gap-4">
-            <a href="/#about" className="link link-hover">À propos</a>
-            <a href="/#menu" className="link link-hover">Menu</a>
-            <a href="/#contact" className="link link-hover">Contact</a>
-            <a className="link link-hover">Mentions légales</a>
-          </div>
-        </div>
+                 <div>
+           <div className="grid grid-flow-col gap-4">
+             <Link href="/#about" className="link link-hover">À propos</Link>
+             <Link href="/#menu" className="link link-hover">Menu</Link>
+             <Link href="/#contact" className="link link-hover">Contact</Link>
+             <a className="link link-hover">Mentions légales</a>
+           </div>
+         </div>
       </footer>
     </div>
   );
