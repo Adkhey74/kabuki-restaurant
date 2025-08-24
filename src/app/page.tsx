@@ -6,6 +6,13 @@ import { motion, AnimatePresence, useScroll, useTransform } from "framer-motion"
 import Link from "next/link";
 
 import AnimatedSection from "@/components/AnimatedSection";
+import TypewriterText from "@/components/TypewriterText";
+import MorphingButton from "@/components/MorphingButton";
+import InteractiveParticles from "@/components/InteractiveParticles";
+import AudioPlayer from "@/components/AudioPlayer";
+
+import TestimonialsCarousel from "@/components/TestimonialsCarousel";
+import SoundEffects from "@/components/SoundEffects";
 
 
 export default function Home() {
@@ -30,6 +37,9 @@ export default function Home() {
 
   return (
     <div className="min-h-screen bg-black">
+      <InteractiveParticles />
+      <AudioPlayer />
+      <SoundEffects />
       {/* Animated Background */}
       <div className="fixed inset-0 overflow-hidden">
         {/* Geometric Pattern */}
@@ -158,6 +168,7 @@ export default function Home() {
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.6, delay: 0.5 }}
             >
+
               <motion.a
                 href="/reservation"
                 className="hidden sm:inline-flex items-center px-6 py-3 bg-gradient-to-r from-red-600 to-red-700 text-white font-semibold rounded-xl shadow-lg"
@@ -274,6 +285,17 @@ export default function Home() {
           scale
         }}
       >
+        {/* Parallax Background */}
+        <motion.div
+          className="absolute inset-0"
+          style={{
+            backgroundImage: 'url(/20250823_2314_Devanture Restaurant Japonais_remix_01k3cce0hrfyzvv279g3bdsg2m.png)',
+            backgroundSize: 'cover',
+            backgroundPosition: 'center',
+            backgroundRepeat: 'no-repeat',
+            y: useTransform(scrollYProgress, [0, 1], [0, -200])
+          }}
+        />
         <motion.div
           className="hero-overlay bg-opacity-60"
           initial={{ opacity: 0 }}
@@ -301,7 +323,7 @@ export default function Home() {
                 whileHover={{ scale: 1.05 }}
                 transition={{ type: "spring", stiffness: 300, damping: 20 }}
               >
-                歌舞伎
+                <TypewriterText text="歌舞伎" />
               </motion.h1>
               <motion.h2
                 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold tracking-wider"
@@ -382,31 +404,18 @@ export default function Home() {
                 />
               </motion.a>
 
-              <motion.div
-                className="group relative px-6 sm:px-8 py-4 bg-gradient-to-r from-yellow-500 to-yellow-600 text-white font-semibold rounded-full text-base sm:text-lg shadow-2xl overflow-hidden inline-block w-full sm:w-auto"
-                whileHover={{
-                  scale: 1.05,
-                  y: -3,
-                  boxShadow: "0 25px 50px -12px rgba(245, 158, 11, 0.4)"
-                }}
-                whileTap={{ scale: 0.95 }}
-                transition={{ type: "spring", stiffness: 300, damping: 20 }}
-              >
-                <Link href="/reservation" className="block">
-                  <span className="relative z-10 flex items-center justify-center">
-                    <svg className="w-5 h-5 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
-                    </svg>
-                    Réserver une table
-                  </span>
-                  <motion.div
-                    className="absolute inset-0 bg-gradient-to-r from-yellow-600 to-yellow-700"
-                    initial={{ x: "-100%" }}
-                    whileHover={{ x: 0 }}
-                    transition={{ duration: 0.3 }}
-                  />
-                </Link>
-              </motion.div>
+              <Link href="/reservation">
+                <MorphingButton
+                  variant="secondary"
+                  size="lg"
+                  className="shadow-2xl hover:shadow-3xl w-full sm:w-auto"
+                >
+                  <svg className="w-5 h-5 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
+                  </svg>
+                  Réserver une table
+                </MorphingButton>
+              </Link>
 
 
             </motion.div>
@@ -660,10 +669,13 @@ export default function Home() {
               <AnimatedSection key={dish.title} delay={index * 0.2}>
                 <motion.div
                   className="group relative bg-gradient-to-br from-black/80 via-black/60 to-black/80 backdrop-blur-xl h-full rounded-3xl border border-gray-700/50 shadow-2xl overflow-hidden hover:border-red-500/50 transition-all duration-500"
+                  style={{
+                    boxShadow: '0 8px 32px rgba(0, 0, 0, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.1)',
+                  }}
                   whileHover={{
                     scale: 1.02,
                     y: -12,
-                    boxShadow: "0 40px 80px -12px rgba(220, 38, 38, 0.4)"
+                    boxShadow: "0 40px 80px -12px rgba(220, 38, 38, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.2)"
                   }}
                   transition={{ type: "spring", stiffness: 300, damping: 20 }}
                 >
@@ -962,6 +974,66 @@ export default function Home() {
               />
             </motion.div>
           </div>
+        </div>
+      </section>
+
+      {/* Testimonials Section */}
+      <section className="relative py-20 overflow-hidden">
+        {/* Modern Background Pattern */}
+        <div className="absolute inset-0">
+          <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_70%,rgba(220,38,38,0.1),transparent_50%)]"></div>
+          <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_30%,rgba(245,158,11,0.1),transparent_50%)]"></div>
+        </div>
+
+        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          {/* Modern Header */}
+          <div className="text-center mb-20">
+            <motion.div
+              className="inline-block mb-6"
+              initial={{ opacity: 0, scale: 0.8 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.6 }}
+              viewport={{ once: true }}
+            >
+              <div className="w-24 h-1 bg-gradient-to-r from-red-500 to-yellow-500 mx-auto rounded-full mb-6"></div>
+              <motion.h2
+                className="text-4xl sm:text-5xl lg:text-6xl font-bold text-white mb-6 font-japanese"
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8, delay: 0.2 }}
+                viewport={{ once: true }}
+              >
+                <span className="bg-gradient-to-r from-white via-yellow-400 to-red-400 bg-clip-text text-transparent">
+                  お客様の声
+                </span>
+                <br />
+                <span className="text-2xl sm:text-3xl lg:text-4xl font-light text-gray-300 mt-2 block">
+                  Témoignages
+                </span>
+              </motion.h2>
+              <div className="w-24 h-1 bg-gradient-to-r from-yellow-500 to-red-500 mx-auto rounded-full"></div>
+            </motion.div>
+
+            <motion.p
+              className="text-lg sm:text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed"
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.4 }}
+              viewport={{ once: true }}
+            >
+              Découvrez ce que nos clients disent de leur expérience chez Kabuki
+            </motion.p>
+          </div>
+
+          {/* Testimonials Carousel */}
+          <motion.div
+            initial={{ opacity: 0, y: 50 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 1, delay: 0.6 }}
+            viewport={{ once: true }}
+          >
+            <TestimonialsCarousel />
+          </motion.div>
         </div>
       </section>
 
