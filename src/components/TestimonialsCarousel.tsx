@@ -2,6 +2,8 @@
 
 import { motion, AnimatePresence } from "framer-motion";
 import { useState, useEffect } from "react";
+import { ChevronLeft, ChevronRight } from "lucide-react";
+import Image from "next/image";
 
 interface Testimonial {
   id: number;
@@ -112,9 +114,7 @@ const TestimonialsCarousel: React.FC = () => {
         whileTap={{ scale: 0.9 }}
         onClick={() => paginate(-1)}
       >
-        <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M15 19l-7-7 7-7" />
-        </svg>
+        <ChevronLeft className="w-6 h-6" />
       </motion.button>
 
       <motion.button
@@ -123,9 +123,7 @@ const TestimonialsCarousel: React.FC = () => {
         whileTap={{ scale: 0.9 }}
         onClick={() => paginate(1)}
       >
-        <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 5l7 7-7 7" />
-        </svg>
+        <ChevronRight className="w-6 h-6" />
       </motion.button>
 
       {/* Carousel */}
@@ -166,7 +164,7 @@ const TestimonialsCarousel: React.FC = () => {
                   transition={{ delay: 0.2 }}
                 >
                   <svg className="w-8 h-8" fill="currentColor" viewBox="0 0 24 24">
-                    <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z"/>
+                    <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z" />
                   </svg>
                 </motion.div>
 
@@ -177,20 +175,25 @@ const TestimonialsCarousel: React.FC = () => {
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: 0.3 }}
                 >
-                  "{testimonials[currentIndex].content}"
+                  &ldquo;{testimonials[currentIndex].content}&rdquo;
                 </motion.p>
 
                 {/* Author Info */}
                 <div className="flex items-center justify-between">
                   <div className="flex items-center space-x-4">
-                    <motion.img
-                      src={testimonials[currentIndex].avatar}
-                      alt={testimonials[currentIndex].name}
-                      className="w-12 h-12 rounded-full object-cover border-2 border-red-500/50"
+                    <motion.div
                       initial={{ scale: 0 }}
                       animate={{ scale: 1 }}
                       transition={{ delay: 0.4 }}
-                    />
+                    >
+                      <Image
+                        src={testimonials[currentIndex].avatar}
+                        alt={testimonials[currentIndex].name}
+                        width={48}
+                        height={48}
+                        className="w-12 h-12 rounded-full object-cover border-2 border-red-500/50"
+                      />
+                    </motion.div>
                     <div>
                       <motion.h4
                         className="text-white font-semibold"
@@ -232,9 +235,8 @@ const TestimonialsCarousel: React.FC = () => {
         {testimonials.map((_, index) => (
           <motion.button
             key={index}
-            className={`w-3 h-3 rounded-full transition-all duration-300 ${
-              index === currentIndex ? 'bg-red-500' : 'bg-gray-600'
-            }`}
+            className={`w-3 h-3 rounded-full transition-all duration-300 ${index === currentIndex ? 'bg-red-500' : 'bg-gray-600'
+              }`}
             onClick={() => {
               setDirection(index > currentIndex ? 1 : -1);
               setCurrentIndex(index);
